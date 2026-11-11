@@ -13,18 +13,19 @@
 > 위 화면과 아래 화면은 로컬에서 `docker compose`로 직접 띄워 캡처했다. 장기 통계 그래프에는 시연용 데이터가 포함되어 있고, 화면에도 '시연용 데이터 포함'으로 표시된다. 분석 영상의 원본 장면은 출처 문제로 싣지 않았다.
 
 ## 목차
-- [왜 만들었나](#왜-만들었나)
-- [주요 기능](#주요-기능)
-- [화면](#화면)
-- [시스템 구성](#시스템-구성)
-- [저장소 안내](#저장소-안내)
-- [기술 스택](#기술-스택)
-- [로컬에서 실행하기](#로컬에서-실행하기)
-- [팀](#팀)
-- [일하는 방식](#일하는-방식)
-- [알려진 한계](#알려진-한계)
+- [🎯 왜 만들었나](#-왜-만들었나)
+- [⚡ 주요 기능](#-주요-기능)
+- [📸 화면](#-화면)
+- [📐 설계 (Design)](#-설계-design)
+- [🔧 기술 스택](#-기술-스택)
+- [🧩 시스템 구성](#-시스템-구성)
+- [📦 저장소 안내](#-저장소-안내)
+- [🚀 로컬에서 실행하기](#-로컬에서-실행하기)
+- [👥 팀](#-팀)
+- [🤝 일하는 방식](#-일하는-방식)
+- [🚧 알려진 한계](#-알려진-한계)
 
-## 왜 만들었나
+## 🎯 왜 만들었나
 
 ![White Eyes 목표](images/ppt/goal.png)
 
@@ -32,7 +33,7 @@
 - **도시계획**: 실제 보행 수요를 반영하지 못한 시설 투자가 생긴다.
 - **창업**: 객관적인 상권 정보가 부족해 입지 선정에 실패한다.
 
-## 주요 기능
+## ⚡ 주요 기능
 
 ![구현된 기능](images/ppt/features.png)
 
@@ -55,9 +56,7 @@
 - 결과를 1초마다 관리자 앱에 전송, 영상은 1분 단위로 녹화
 - 라이브 캠 1대는 실시간 분석, 나머지는 더미 캠(영상 1회 분석 후 결과 재사용)
 
-## 화면
-
-> 🔗 [Figma 프로토타입 (Share CCTV Prototype)](https://www.figma.com/make/cQK4DRcWOfnjH3hSkpPud4/Share-CCTV-Prototype) — 기획 단계에서 만든 화면 시안이다. 실제 구현 화면은 아래 캡처를 본다.
+## 📸 화면
 
 ### 관리자 앱
 
@@ -65,9 +64,14 @@
 |---|---|
 | ![대시보드와 히트맵](images/screens/admin-heatmap.png) | ![통계 그래프](images/screens/admin-graph.png) |
 
+<details>
+<summary>구역 관리 · 캠 관리</summary>
+
 | 구역 관리 (지도에서 구역 그리기) | 캠 관리 |
 |---|---|
 | ![구역 관리](images/screens/admin-zones.png) | ![캠 관리](images/screens/admin-cameras.png) |
+
+</details>
 
 ### 사용자 앱
 
@@ -75,13 +79,49 @@
 |---|---|
 | ![사용자 대시보드](images/screens/user-dashboard.png) | ![사용자 통계 그래프](images/screens/user-graph.png) |
 
+<details>
+<summary>로그인 · 회원가입</summary>
+
 | 로그인 | 회원가입 |
 |---|---|
 | ![사용자 로그인](images/screens/user-login.png) | ![회원가입](images/screens/user-signup.png) |
 
+</details>
+
 > 대시보드의 캠 카드는 원본 영상이 보이지 않도록 가려서 캡처했다.
 
-## 시스템 구성
+## 📐 설계 (Design)
+
+| 구분 | 내용 | 링크 |
+|---|---|---|
+| 화면 설계 (기획 시안) | 기획 단계에서 만든 화면 시안 (Figma 프로토타입) | [🔗 Figma 화면설계](https://www.figma.com/make/cQK4DRcWOfnjH3hSkpPud4/Share-CCTV-Prototype) |
+| 화면 시안 (확정) | 구현 기준으로 확정한 시안, 27화면 (정적 HTML·PNG)과 화면별 기능 명세 | [🔗 화면 시안](https://github.com/white-eyes1/white-eyes-docs/tree/main/design) · [🔗 화면 명세서](https://github.com/white-eyes1/white-eyes-docs/blob/main/screens.md) |
+| 요구사항 정의서 | 영역별 요구 명세 | [🔗 requirements.md](https://github.com/white-eyes1/white-eyes-docs/blob/main/requirements.md) |
+| 기능 정의서 | 기능 목록과 기능별 상세 (사용자·관리자·분석) | [🔗 기능 목록](https://github.com/white-eyes1/white-eyes-docs/blob/main/features/index.md) |
+| API 명세서 | 브라우저 ↔ 앱, 사용자·관리자 앱 ↔ 분석 서버 계약 | [🔗 api/](https://github.com/white-eyes1/white-eyes-docs/tree/main/api) |
+| 테이블 정의서 | 공통 규칙과 테이블별 칼럼 명세 | [🔗 tables.md](https://github.com/white-eyes1/white-eyes-docs/blob/main/tables.md) |
+| ERD | 테이블 구조와 관계 (주요 칼럼만 표시) | [🔗 ERD 이미지](images/ppt/erd.png) |
+
+<details>
+<summary>ERD 보기</summary>
+
+![ERD](images/ppt/erd.png)
+
+</details>
+
+## 🔧 기술 스택
+
+| 영역 | 사용 기술 |
+|---|---|
+| 사용자·관리자 앱 | Java 17, Spring Boot 4.1.1, Gradle(멀티모듈), Spring Security, Spring Data JPA, Spring Session JDBC, Thymeleaf, SSE |
+| 화면 | HTML/CSS/JavaScript, Chart.js, Leaflet + OpenStreetMap |
+| 분석 서버 | Python 3.12, Flask, Ultralytics YOLOv8(VisDrone 가중치), PyTorch(CPU), OpenCV, ffmpeg |
+| DB | MySQL 8.4, Flyway(마이그레이션) |
+| 인프라 | nginx(리버스 프록시), Docker / Docker Compose, (설계) VirtualBox VM + NFS |
+| 협업 | GitHub(이슈·PR), GitHub Actions(CI) |
+| 문서 | Markdown 명세, 결정 기록(ADR 형식) |
+
+## 🧩 시스템 구성
 
 ![서비스 구성도](images/ppt/architecture.png)
 
@@ -111,7 +151,7 @@ flowchart LR
 
 </details>
 
-## 저장소 안내
+## 📦 저장소 안내
 
 | 저장소 | 역할 | 바로가기 |
 |---|---|---|
@@ -128,19 +168,7 @@ flowchart LR
 3. 관심 있는 쪽(spring 또는 flask) README로 이동
 4. [deploy](https://github.com/white-eyes1/white-eyes-deploy)로 직접 실행해 보기
 
-## 기술 스택
-
-| 영역 | 사용 기술 |
-|---|---|
-| 사용자·관리자 앱 | Java 17, Spring Boot 4.1.1, Gradle(멀티모듈), Spring Security, Spring Data JPA, Spring Session JDBC, Thymeleaf, SSE |
-| 화면 | HTML/CSS/JavaScript, Chart.js, Leaflet + OpenStreetMap |
-| 분석 서버 | Python 3.12, Flask, Ultralytics YOLOv8(VisDrone 가중치), PyTorch(CPU), OpenCV, ffmpeg |
-| DB | MySQL 8.4, Flyway(마이그레이션) |
-| 인프라 | nginx(리버스 프록시), Docker / Docker Compose, (설계) VirtualBox VM + NFS |
-| 협업 | GitHub(이슈·PR), GitHub Actions(CI) |
-| 문서 | Markdown 명세, 결정 기록(ADR 형식) |
-
-## 로컬에서 실행하기
+## 🚀 로컬에서 실행하기
 
 [white-eyes-deploy](https://github.com/white-eyes1/white-eyes-deploy)의 README를 따른다. 요약하면 다음과 같다.
 
@@ -157,7 +185,7 @@ docker compose up -d --build
 - 사용자 앱 `http://localhost/`, 관리자 앱 `http://localhost/admin/`
 - 분석에 쓰는 모델 가중치와 더미 영상은 저장소에 없다. 받는 방법은 deploy·flask README를 본다.
 
-## 팀
+## 👥 팀
 
 ![팀 소개](images/ppt/team-intro.png)
 
@@ -179,7 +207,7 @@ docker compose up -d --build
 
 </details>
 
-## 일하는 방식
+## 🤝 일하는 방식
 
 ![Git·GitHub 브랜치 전략](images/ppt/branch-strategy.png)
 
@@ -190,7 +218,7 @@ docker compose up -d --build
 - **결정과 트러블슈팅을 기록한다.** 선택의 이유는 [decisions/](https://github.com/white-eyes1/white-eyes-docs/tree/main/decisions), 겪은 문제는 각 저장소의 `docs/troubleshooting/`에 남긴다.
 - 기능별 시험 결과는 [test-reports/](https://github.com/white-eyes1/white-eyes-docs/tree/main/test-reports)에 날짜별로 정리했다.
 
-## 알려진 한계
+## 🚧 알려진 한계
 
 - 센 인원은 실제보다 적다(사진 120장 측정에서 실제의 약 60~65%). 그래서 화면에서는 '추정 인원'과 상대적인 혼잡 지표로 쓴다.
 - 유입/유출·체류 시간은 추적이 끊기면 틀어지므로 참고용이다.
