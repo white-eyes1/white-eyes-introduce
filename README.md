@@ -57,6 +57,8 @@
 
 ## 화면
 
+> 🔗 [Figma 프로토타입 (Share CCTV Prototype)](https://www.figma.com/make/cQK4DRcWOfnjH3hSkpPud4/Share-CCTV-Prototype) — 기획 단계에서 만든 화면 시안이다. 실제 구현 화면은 아래 캡처를 본다.
+
 ### 관리자 앱
 
 | 대시보드 + 히트맵 | 통계 그래프 |
