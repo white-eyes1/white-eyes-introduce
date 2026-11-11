@@ -1,6 +1,6 @@
-![White Eyes - 드론 관제를 통한 유동인구 분석 시스템](images/ppt/cover-banner.png)
-
 # White Eyes
+
+![White Eyes - 드론 관제를 통한 유동인구 분석 시스템](images/ppt/cover-banner.png)
 
 > 드론·CCTV 영상에서 사람을 세고, 구역별 혼잡을 한눈에 보여주는 군중 관제 서비스
 
