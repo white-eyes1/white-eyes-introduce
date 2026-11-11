@@ -1,3 +1,5 @@
+![White Eyes 프로젝트 발표 표지](images/ppt/cover.png)
+
 # White Eyes
 
 > 드론·CCTV 영상에서 사람을 세고, 구역별 혼잡을 한눈에 보여주는 군중 관제 서비스
