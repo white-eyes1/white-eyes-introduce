@@ -1,4 +1,4 @@
-![White Eyes 프로젝트 발표 표지](images/ppt/cover.png)
+![White Eyes - 드론 관제를 통한 유동인구 분석 시스템](images/ppt/cover-banner.png)
 
 # White Eyes
 
