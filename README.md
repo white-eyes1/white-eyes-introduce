@@ -22,7 +22,6 @@
 - [📦 저장소 안내](#-저장소-안내)
 - [🚀 로컬에서 실행하기](#-로컬에서-실행하기)
 - [👥 팀](#-팀)
-- [🤝 일하는 방식](#-일하는-방식)
 - [🚧 알려진 한계](#-알려진-한계)
 
 ## 🎯 왜 만들었나
@@ -206,17 +205,6 @@ docker compose up -d --build
 ![팀원 개인별 기여](images/ppt/team-contribution.png)
 
 </details>
-
-## 🤝 일하는 방식
-
-![Git·GitHub 브랜치 전략](images/ppt/branch-strategy.png)
-
-- **명세가 먼저다.** 모든 기능은 [white-eyes-docs](https://github.com/white-eyes1/white-eyes-docs)의 명세(`FNC-*` 기능, `SCR-*` 화면, `API`)를 읽고 나서 만든다. 명세와 다르게 만들어야 하면 명세 PR을 먼저 올린다.
-- **이슈 하나 = 브랜치 하나 = PR 하나.** 브랜치는 `feature/<이슈 번호>-<이름>`, PR 대상은 항상 `dev`이고 `main`·`dev`에 직접 push하지 않는다.
-- **검수 기준은 테스트로 만든다.** CI(GitHub Actions)가 빌드·테스트·형식 검사를 돌린다.
-- **커밋 메시지 규칙**을 세 저장소에 같이 적용한다 ([commit-convention.md](https://github.com/white-eyes1/white-eyes-docs/blob/main/commit-convention.md)).
-- **결정과 트러블슈팅을 기록한다.** 선택의 이유는 [decisions/](https://github.com/white-eyes1/white-eyes-docs/tree/main/decisions), 겪은 문제는 각 저장소의 `docs/troubleshooting/`에 남긴다.
-- 기능별 시험 결과는 [test-reports/](https://github.com/white-eyes1/white-eyes-docs/tree/main/test-reports)에 날짜별로 정리했다.
 
 ## 🚧 알려진 한계
 
