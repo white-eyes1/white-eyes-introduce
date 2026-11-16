@@ -93,7 +93,7 @@
 
 | 구분 | 내용 | 링크 |
 |---|---|---|
-| 화면 설계 (기획 시안) | 기획 단계에서 만든 화면 시안 (Figma 프로토타입) | [🔗 Figma 화면설계](https://www.figma.com/make/cQK4DRcWOfnjH3hSkpPud4/Share-CCTV-Prototype) |
+| 화면 설계 (기획 시안) | 기획 단계에서 만든 화면 시안 (Figma 프로토타입) | [🔗 Figma 화면설계](https://www.figma.com/make/cQK4DRcWOfnjH3hSkpPud4/Share-CCTV-Prototype?code-node-id=0-6&p=f&t=DNRmI9Fz7Q7JfTXX-0&fullscreen=1) |
 | 화면 시안 (확정) | 구현 기준으로 확정한 시안, 27화면 (정적 HTML·PNG)과 화면별 기능 명세 | [🔗 화면 시안](https://github.com/white-eyes1/white-eyes-docs/tree/main/design) · [🔗 화면 명세서](https://github.com/white-eyes1/white-eyes-docs/blob/main/screens.md) |
 | 요구사항 정의서 | 영역별 요구 명세 | [🔗 requirements.md](https://github.com/white-eyes1/white-eyes-docs/blob/main/requirements.md) |
 | 기능 정의서 | 기능 목록과 기능별 상세 (사용자·관리자·분석) | [🔗 기능 목록](https://github.com/white-eyes1/white-eyes-docs/blob/main/features/index.md) |
